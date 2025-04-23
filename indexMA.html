@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мария Капюжная - Психолог-консультант</title>
+    <style>
+        :root {
+            --primary-color: #2a5c4a;
+            --secondary-color: #e8f3ee;
+            --accent-color: #5a8f7d;
+            --light-accent: #a7d9c5;
+            --text-color: #333333;
+            --light-text: #f8f9fa;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --roundness: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f5f7f6;
+        }
+
+        .logo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            color: var(--light-text);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--light-text);
+            padding: 0 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            clip-path: ellipse(100% 100% at 50% 0%);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .profile-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 5px solid var(--light-accent);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background-image: url('photo_2025-03-22_17-46-08.jpg');
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-text {
+            max-width: 600px;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: var(--light-accent);
+        }
+
+        .specialization {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .specialization span {
+            display: inline-block;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            background-color: rgba(255,255,255,0.15);
+            border-radius: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: -3rem auto 0;
+            padding: 0 2rem 2rem;
+            position: relative;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            background-color: white;
+            border-radius: var(--roundness);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.8rem;
+            font-size: 1.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--secondary-color);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .about-me {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat-item {
+            background-color: white;
+            padding: 1.8rem 1rem;
+            border-radius: var(--roundness);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--secondary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--light-accent);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .approach-list {
+            list-style-type: none;
+        }
+
+        .approach-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 2.5rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .approach-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 15px;
+            height: 15px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            transform: rotate(45deg);
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--roundness);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .value-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .social-link.telegram {
+            background-color: #0088cc;
+            color: white;
+        }
+
+        .social-link.whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+            clip-path: ellipse(100% 100% at 50% 100%);
+        }
+
+        footer p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                height: 50px;
+                font-size: 1rem;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            header {
+                padding: 0 0 3rem;
+                clip-path: ellipse(120% 100% at 50% 0%);
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .tagline {
+                font-size: 1.4rem;
+            }
+
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .profile-text {
+                text-align: center;
+            }
+
+            .specialization span {
+                margin: 0.3rem;
+            }
+
+            .container {
+                padding: 0 1.5rem 1.5rem;
+                margin-top: -2rem;
+            }
+
+            section {
+                padding: 1.8rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+
+  <div class="logo-container">
+      <a href="#" class="logo">
+          <img src="logoMA.png" class="logo-img">
+      </a>
+  </div>
+        <div class="header-content">
+            <div class="profile-container">
+                <div class="profile-image"></div>
+                <div class="profile-text">
+                    <h1>Мария Калюжная</h1>
+                    <div class="tagline">Разреши жить себя</div>
+                    <div class="specialization">
+                        <span>Дипломированный психолог-консультант</span>
+                        <span>Клинический психолог</span>
+                        <span>Преподаватель и педагог-психолог</span>
+                        <span>Телесно-ориентированный психолог</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>Почему я?</h2>
+            <div class="about-me">
+                <div class="about-text">
+                    <p>Я использую интегративный и инновационный подход в своей работе, сочетая различные методы для достижения наилучшего результата. Постоянно повышаю свою квалификацию для максимальной эффективности в помощи клиентам.</p>
+
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">5+</div>
+                            <div>лет опыта</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1000+</div>
+                            <div>часов консультаций</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">300+</div>
+                            <div>часов личной терапии</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="approach">
+            <h2>Что важно для меня как для психолога</h2>
+            <ul class="approach-list">
+                <li>Создать безопасное пространство для вашего проявления</li>
+                <li>Помочь посмотреть на волнующую проблему с другой стороны</li>
+                <li>Помочь в осознании причины происходящего в жизни</li>
+                <li>Бережно помочь проявить сложные чувства и прожить их</li>
+                <li>Помочь освободиться от внутреннего напряжения</li>
+            </ul>
+        </section>
+
+        <section id="values">
+            <h2>Мои принципы работы</h2>
+            <div class="values">
+                <div class="value-card">
+                    <h3>Конфиденциальность</h3>
+                    <p>Полная анонимность и защита вашей личной информации</p>
+                </div>
+                <div class="value-card">
+                    <h3>Эффективность</h3>
+                    <p>Использование проверенных методов с доказанной результативностью</p>
+                </div>
+                <div class="value-card">
+                    <h3>Бережность</h3>
+                    <p>Тактичный и внимательный подход к каждой личности</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Мария Калюжная - Психолог-консультант, клинический, телесно-ориентированный психолог</p>
+
+        <div class="social-links">
+            <a href="https://t.me/your_telegram" class="social-link telegram" target="_blank" aria-label="Telegram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.25 1.58-1.32 5.41-1.87 7.19-.14.45-.41.6-.68.61-.23.01-.58-.11-.86-.21l-2.68-1.05-1.03-.99c-.37-.35-.01-.54.23-.78l4.49-4.08.09-.09c.03-.04.06-.08.01-.13-.05-.05-.08-.03-.12-.01-.05.03-7.8 5.12-8.01 5.35-.21.23-.62.23-.9.07-.28-.15-.43-.53-.32-.83l1.39-4.39s-3.24-1.02-3.3-1.07c-.07-.05-.15-.15-.15-.15s0-.1.1-.1c.1 0 .25.02.4.03.15.01 3.65.73 6.38 1.34 2.73.61 5.09.91 5.26.86.06-.02.11-.06.11-.11.01-.09-.09-.2-.24-.31z"/>
+                </svg>
+            </a>
+            <a href="https://wa.me/your_whatsapp_number" class="social-link whatsapp" target="_blank" aria-label="WhatsApp">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
